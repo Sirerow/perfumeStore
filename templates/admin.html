@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Suruchi - My Account - shared on themelock.com</title>
+    <meta name="description" content="Modern Bootstrap HTML5 Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <!-- ======= All CSS Plugins here ======== -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/glightbox.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Plugin css -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Верхняя панель с кнопкой лог-аута -->
+    <div class="logout-bar">
+        <a href="auth/exit.html" class="logout-btn btn btn-danger">Log Out</a>
+    </div>
+
+    <!-- Старт секции добавления товара -->
+    <section class="product__details__area pt-120 pb-90">
+        <div class="container">
+            <div class="row">
+                <!-- Основной блок с формой -->
+                <div class="col-12">
+                    <div class="product__details--info">
+                        <h2 class="text-center">Add New Product</h2>
+
+                        <!-- Форма добавления товара -->
+                        <form action="/my-account.html" method="POST" enctype="multipart/form-data" class="product__add-form">
+                            <div class="row">
+                                <!-- Поле для названия товара -->
+                                <div class="col-lg-6 col-md-12 mb-3">
+                                    <label for="product_name" class="product__details--info__label">Product Name</label>
+                                    <input type="text" name="product_name" id="product_name" class="form-control product__details--info__input" required>
+                                </div>
+
+                                <!-- Поле для цены товара -->
+                                <div class="col-lg-6 col-md-12 mb-3">
+                                    <label for="product_price" class="product__details--info__label">Product Price</label>
+                                    <input type="number" step="0.01" name="product_price" id="product_price" class="form-control product__details--info__input" required>
+                                </div>
+
+                                <!-- Поле для описания товара -->
+                                <div class="col-12 mb-3">
+                                    <label for="product_about" class="product__details--info__label">Product Description</label>
+                                    <textarea name="product_about" id="product_about" class="form-control product__details--info__input" rows="4" required></textarea>
+                                </div>
+
+                                <!-- Поле для загрузки изображения товара -->
+                                <div class="col-12 mb-3">
+                                    <label for="product_image" class="product__details--info__label">Product Image</label>
+                                    <input type="file" name="product_image" id="product_image" class="form-control product__details--info__input" accept="image/*" required>
+                                </div>
+
+                                <!-- Кнопка отправки формы -->
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary product__details--info__btn">Add Product</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Конец секции добавления товара -->
+
+    <!-- Scroll top bar -->
+    <button id="scroll__top"><svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 244l144-144 144 144M256 120v292"/></svg></button>
+
+    <!-- All Script JS Plugins here  -->
+    <script src="assets/js/vendor/popper.js" defer="defer"></script>
+    <script src="assets/js/vendor/bootstrap.min.js" defer="defer"></script>
+    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="assets/js/plugins/glightbox.min.js"></script>
+
+    <!-- Customscript js -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
