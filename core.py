@@ -214,8 +214,43 @@ def account():
             print(user)
             print(admin)
             if admin==1:
+                # Получаем все товары
+                products = DBase().getAllProducts()
+                products = [list(product) for product in products]
+                products.reverse()
+                lenProducts = len(products)
+
+                # Преобразуем картинки в base64
+                for product in products:
+                    if product[4]:
+                        product[4] = base64.b64encode(product[4]).decode('utf-8')
+
+                # Получаем товары из корзины для текущего пользователя (предполагается, что user_id уже есть)
+                try:
+                    user = UserLogin.get_user(current_user)
+                    if user != None:
+                        cart_items = DBase().getCartItems(user[0])
+                    else:
+                        cart_items = None
+
+                    # Создаем список товаров в корзине и подсчитываем общую стоимость
+                    cart = []
+                    total_price = 0
+                    if cart_items != None:
+                        for item in cart_items:
+                            product = DBase().getProductById(item[2])
+                            product_data = {
+                                'product_id': product[0],
+                                'name': product[1],
+                                'price': product[3],
+                                'image': base64.b64encode(product[4]).decode('utf-8')
+                                # Преобразуем изображение в base64
+                            }
+                            cart.append(product_data)
+                            total_price += product_data['price']
+                except: redirect("auth/login.html")
                 print(1)
-                return render_template("my-account.html")
+                return render_template("my-account.html",user=user,products=products, lenProducts=lenProducts, cart=cart, total_price=total_price, admin=user[4])
             elif admin==2:
                 print(2)
                 return render_template("admin.html")
